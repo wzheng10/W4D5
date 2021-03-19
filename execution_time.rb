@@ -9,7 +9,7 @@ def my_min(array)
             end
         end
     end
-    subset.sort[0][0]
+    subset.sort[0][0] #log linear O(nlogn)
 end
 
 
@@ -27,17 +27,21 @@ end
 # p my_min(list)  
 # p my_min_2(list)
 
-#Quadratic O(n^2) using nested loops
+# O(n^3) using nested loops
 def largest_contiguous_subsum(list) 
 	subs = []
-# O(n^2)
+# O(n^3)
   (0..(list.length-1)).each do |idx1|
     (idx1..(list.length-1)).each do |idx2|
       subs << list[idx1..idx2]
 		end
 	end
-	#O(n)
-	subs.map! { |arr| arr.sum}.max
+	#O(n^3) #make into do block to see the complexity
+	# subs.map! { |arr| arr.sum}.max
+	subs.map! do |arr|
+		arr.sum
+	end
+	subs.max
 end
 
 list = [5,3,-7]

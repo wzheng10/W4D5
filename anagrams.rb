@@ -9,8 +9,17 @@ end
 
 
 def second_anagram?(str1, str2)
+    arr1 = str1.split("")
+    arr2 = str2.split("")
+    arr1.each do |letter|
+        idx = arr2.find_index(letter)
+        if idx != nil
+            arr2[idx] = ""
+        end
+    end
 
+    arr2.empty?
 end
 
-# p first_anagram?("gizmo", "sally")
-# find_index and delete
+p second_anagram?("gizmo", "sally")
+p second_anagram?("elvis", "lives") #true
