@@ -37,12 +37,12 @@ def largest_contiguous_subsum(list)
       subs << list[idx1..idx2]
 		end
 	end 
-  # m = lenght fo subs => O(m)*O(m)
+  # m = lenght of subs 
   # relpationship btw n<->m  m can be at most n^2
-  # can be swap m => n^2
+  # can be swaped m => n^2
 	# O(n^3) #make into do block to see the complexity
 	# subs.map! { |arr| arr.sum}.max
-	subs.map! do |arr| 
+	subs.map! do |arr|  #O(m) (=>O(n^2))
 		arr.sum       #O(n)      
 	end
 	subs.max
