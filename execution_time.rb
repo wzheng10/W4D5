@@ -28,6 +28,7 @@ end
 # p my_min_2(list)
 
 # O(n^3) using nested loops
+#n = length of list
 def largest_contiguous_subsum(list) 
 	subs = []
 # O(n^3)
@@ -35,11 +36,14 @@ def largest_contiguous_subsum(list)
     (idx1..(list.length-1)).each do |idx2|
       subs << list[idx1..idx2]
 		end
-	end
-	#O(n^3) #make into do block to see the complexity
+	end 
+  # m = lenght fo subs => O(m)*O(m)
+  # relpationship btw n<->m  m can be at most n^2
+  # can be swap m => n^2
+	# O(n^3) #make into do block to see the complexity
 	# subs.map! { |arr| arr.sum}.max
-	subs.map! do |arr|
-		arr.sum
+	subs.map! do |arr| 
+		arr.sum       #O(n)      
 	end
 	subs.max
 end
