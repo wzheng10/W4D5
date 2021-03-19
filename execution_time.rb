@@ -54,7 +54,7 @@ def largest_contiguous_subsum_2(list)
 	largest_num = list.first
   current_num = list.first
 
-  (1...list.length).each do |i|
+  (1...list.length).each do |i|		#linear
     current_num = 0 if current_num < 0
     current_num += list[i]
     largest_num = current_num if current_num > largest_num
