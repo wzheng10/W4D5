@@ -27,21 +27,23 @@ end
 # p my_min(list)  
 # p my_min_2(list)
 
-
+#Quadratic O(n^2)
 #using nested loops
-def largest_contiguous_subsum(list)
+def largest_contiguous_subsum(list) 
+	subs = []
+# O(n^2)
   (0..(list.length-1)).each do |idx1|
     (idx1..(list.length-1)).each do |idx2|
-      subs = (list[idx1]..list[idx2]) 
-      max = subs.first.sum
-      (1...sub.length).each do |i|
-        max = sub[i] if sub[i] > max
-      end
-    end
-  end
-  max
+      subs << list[idx1..idx2]
+		end
+	end
+	#O(n)
+	subs.map! { |arr| arr.sum}.max
 end
 
 list = [5,3,-7]
 p largest_contiguous_subsum(list)
 
+def largest_contiguous_subsum_2(list)
+	
+end
