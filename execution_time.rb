@@ -27,8 +27,7 @@ end
 # p my_min(list)  
 # p my_min_2(list)
 
-#Quadratic O(n^2)
-#using nested loops
+#Quadratic O(n^2) using nested loops
 def largest_contiguous_subsum(list) 
 	subs = []
 # O(n^2)
@@ -42,8 +41,27 @@ def largest_contiguous_subsum(list)
 end
 
 list = [5,3,-7]
-p largest_contiguous_subsum(list)
+list2 = [2, 3, -6, 7, -6, 7]
+list_neg = [-5,-1,-3]
+# p largest_contiguous_subsum(list)
 
+#[5,3,-7]
+#lar = 5
+#cur = 5
+#[5] [5,3] [5,-7] [3] [3,-7] [-7] [5,3,-7]
+require 'byebug'
 def largest_contiguous_subsum_2(list)
-	
+	largest_num = list.first
+  current_num = list.first
+
+  (1...list.length).each do |i|
+    current_num = 0 if current_num < 0
+    current_num += list[i]
+    largest_num = current_num if current_num > largest_num
+  end
+  largest_num
 end
+
+p largest_contiguous_subsum_2(list)
+p largest_contiguous_subsum_2(list2)
+p largest_contiguous_subsum_2(list_neg)
